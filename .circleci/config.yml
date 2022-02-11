@@ -10,7 +10,10 @@ jobs:
           command: "composer install --prefer-dist --no-progress"
       - run:
           name: "Execute tests"
-          command: "vendor/bin/phpunit"
+          command: "vendor/bin/phpunit --coverage-clover coverage.xml"
+      - store_artifacts:
+          path: coverage.xml
+          destination: circleci-docs
 
 workflows:
   build-workflow:
