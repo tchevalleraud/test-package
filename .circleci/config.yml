@@ -10,7 +10,7 @@ jobs:
           command: "composer install --prefer-dist --no-progress"
       - run:
           name: "Execute tests"
-          run: "vendor/bin/phpunit"
+          command: "vendor/bin/phpunit"
 
 workflows:
   build-workflow:
