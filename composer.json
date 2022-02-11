@@ -1,0 +1,24 @@
+{
+    "name": "tchevalleraud/test-package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thibault CHEVALLERAUD",
+            "email": "tchevalleraud@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Tchevalleraud\\TestPackage\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "php-coveralls/php-coveralls": "^2.5"
+    }
+}
