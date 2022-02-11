@@ -20,8 +20,5 @@
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "php-coveralls/php-coveralls": "^2.5"
-    },
-    "post-autoload-dump": [
-        "vendor/bin/phpunit"
-    ]
+    }
 }
