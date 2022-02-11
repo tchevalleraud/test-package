@@ -21,5 +21,7 @@
         "phpunit/phpunit": "^9.5",
         "php-coveralls/php-coveralls": "^2.5"
     },
-    "test": "vendor/bin/phpunit"
+    "post-autoload-dump": [
+        "vendor/bin/phpunit"
+    ]
 }
