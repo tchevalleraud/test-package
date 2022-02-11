@@ -15,7 +15,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: vendor
-          key: ${{ runer.os }}-php-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys:
             ${{ runner.os }}-php-
       - name: Install dependencies
