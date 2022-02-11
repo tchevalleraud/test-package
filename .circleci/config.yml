@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: ubuntu-latest
+        auth:
+          username: tchevalleraud@interdata.fr
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run:
