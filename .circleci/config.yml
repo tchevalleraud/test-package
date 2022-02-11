@@ -11,7 +11,7 @@ jobs:
       - run:
           name: "Execute tests"
           command: "vendor/bin/phpunit --coverage-clover coverage.xml"
-      - store_artifacts:
+      - store_test_results:
           path: coverage.xml
           destination: circleci-docs
 
