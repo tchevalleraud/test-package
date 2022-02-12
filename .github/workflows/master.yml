@@ -14,5 +14,5 @@ jobs:
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: |
-          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
-          vendor/bin/php-coveralls --coverage_clover=coverage.xml -v
+          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+          vendor/bin/php-coveralls --coverage_clover=build/logs/clover.xml -v
