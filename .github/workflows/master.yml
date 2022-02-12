@@ -13,4 +13,4 @@ jobs:
       - name: Execute tests
         run: |
           XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
-          php vendor/bin/php-coveralls
+          vendor/bin/php-coveralls --coverage_clover=coverage.xml -v
