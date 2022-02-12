@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Change environment
+        run: echo 'xdebug.mode=coverage' >> /usr/local/etc/php/php.ini
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
       - name: Execute tests
