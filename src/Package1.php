@@ -13,4 +13,9 @@
             return $this->data;
         }
 
+        public function setData($data = []){
+            $this->data = $data;
+            return $this;
+        }
+
     }
