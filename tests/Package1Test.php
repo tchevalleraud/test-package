@@ -3,7 +3,7 @@
 
         public function testPackage1_instanceOf(){
             $package = new \Tchevalleraud\TestPackage\Package1();
-            $this->assertInstanceOf(\Tchevalleraud\TestPackage\Package1()::class, $package);
+            $this->assertInstanceOf(\Tchevalleraud\TestPackage\Package1::class, $package);
         }
 
         public function testPackage1_construct(){
