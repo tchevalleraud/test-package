@@ -14,6 +14,9 @@
         public function testPackage1(){
             $package = new \Tchevalleraud\TestPackage\Package1(['data' => 1]);
             $this->assertEquals(['data' => 1], $package->getData());
+
+            $package->setData(['data_new' => 2]);
+            $this->assertEquals(['data_new' => 2], $package->getData());
         }
 
     }
