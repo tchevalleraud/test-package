@@ -1,7 +1,7 @@
 <?php
     namespace Tchevalleraud\TestPackage;
 
-    class package1 {
+    class Package1 {
 
         private $data;
 
