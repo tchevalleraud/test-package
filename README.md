@@ -1,6 +1,7 @@
 # Test Package
 
 [![Master](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml)
+[![Develop](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml)
 
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
