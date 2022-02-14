@@ -20,3 +20,7 @@ jobs:
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_TOKEN }}
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/php@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
