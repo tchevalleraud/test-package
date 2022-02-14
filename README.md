@@ -2,6 +2,7 @@
 
 [![Master](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml)
 [![Develop](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml)
+[![Snyk](https://snyk-widget.herokuapp.com/badge/composer/snyk/tchevalleraud/test-package/badge.svg)](https://app.snyk.io/org/tchevalleraud/project/9214773f-6060-4f84-9990-536e2e4604ad)
 
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
