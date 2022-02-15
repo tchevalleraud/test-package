@@ -16,6 +16,11 @@ jobs:
       - name: Execute tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --configuration phpunit.xml.dist
 
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/php@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
       - name: Upload tests results
         uses: actions/upload-artifact@v2
         with:
@@ -51,17 +56,6 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: bash <(curl -s https://codecov.io/bash)
-
-  test-snyk:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   test-sonarcloud:
     needs: build
