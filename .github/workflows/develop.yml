@@ -28,8 +28,8 @@ jobs:
 
       - name: Fix coverage for SonarCloud
         run: |
-          sed -i 's/\/home\/runner\/work\/tchevalleraud\/test-package\//\/github\/workspace\//g' coverage.xml
-          sed -i 's/\/home\/runner\/work\/tchevalleraud\/test-package\//\/github\/workspace\//g' phpunit.xml
+          sed -i 's/\/home\/runner\/work\/test-package\/test-package\//\/github\/workspace\//g' coverage.xml
+          sed -i 's/\/home\/runner\/work\/test-package\/test-package\//\/github\/workspace\//g' phpunit.xml
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
