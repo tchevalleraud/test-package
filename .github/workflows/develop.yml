@@ -16,9 +16,6 @@ jobs:
       - name: Execute tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --log-junit=junit.xml
 
-      - name: Test
-        run: cat coverage.xml
-
       - name: Upload coverage results to Coveralls
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
@@ -28,6 +25,11 @@ jobs:
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_TOKEN }}
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+
+      - name: Fix coverage for SonarCloud
+        run: |
+          sed -i 's/\/home\/runner\/work\/tchevalleraud\/test-package\//\/github\/workspace\//g' coverage.xml
+          sed -i 's/\/home\/runner\/work\/tchevalleraud\/test-package\//\/github\/workspace\//g' junit.xml
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
