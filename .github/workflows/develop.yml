@@ -2,7 +2,7 @@ name: Develop
 on:
   push:
     branches:
-      - develop-2
+      - develop
 
 jobs:
   build:
