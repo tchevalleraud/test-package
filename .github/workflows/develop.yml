@@ -3,28 +3,35 @@ on:
   push:
     branches:
       - develop
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
+
       - name: Execute tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
+
       - name: Upload coverage results to Coveralls
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: bash <(curl -s https://codecov.io/bash)
+
       - name: Upload coverage results to Codacy
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_TOKEN }}
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/php@master
         env:
