@@ -10,7 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Dump
-        run: |
-          pwd
-          ls -Al
+      - uses: actions/cache@v2
+        name: Cache README.md
+        id: cache-readme
+        with:
+          path: README.md
+          key: ${{ runner.os }}-readme
+
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/cache@v2
+        name: Restore README.md
+        with:
+          path: README.md
+          key: ${{ runner.os }}-readme
+          restore-keys: ${{ runner.os }}-readme
