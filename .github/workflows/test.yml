@@ -10,23 +10,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
-        name: Cache README.md
-        id: cache-readme
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Execute tests
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --configuration phpunit.xml.dist
+
+      - name: Upload tests results
+        uses: actions/upload-artifact@v2
         with:
-          path: README.md
-          key: ${{ runner.os }}-readme
+          name: phpunit
+          path: |
+            coverage.xml
+            phpunit.xml
 
   test1:
-    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cache@v2
-        name: Restore README.md
+      - name: Download tests results
+        uses: actions/download-artifact@v2
         with:
-          path: README.md
-          key: ${{ runner.os }}-readme
-          restore-keys: ${{ runner.os }}-readme
+          name: phpunit
 
       - name: Dump
         run: ls -Al
