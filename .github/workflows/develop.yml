@@ -16,15 +16,57 @@ jobs:
       - name: Execute tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --configuration phpunit.xml.dist
 
-      - name: Upload coverage results to Coveralls
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/php@master
         env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        run: bash <(curl -s https://codecov.io/bash)
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Upload tests results
+        uses: actions/upload-artifact@v2
+        with:
+          name: phpunit
+          path: |
+            coverage.xml
+            phpunit.xml
+
+  test-codacy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: phpunit
 
       - name: Upload coverage results to Codacy
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_TOKEN }}
         run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+
+  test-coveralls:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: phpunit
+
+      - name: Upload coverage results to Coveralls
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: bash <(curl -s https://codecov.io/bash)
+
+  test-sonarcloud:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: phpunit
 
       - name: Fix coverage for SonarCloud
         run: |
@@ -37,8 +79,3 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
