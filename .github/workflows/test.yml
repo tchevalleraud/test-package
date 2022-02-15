@@ -28,6 +28,7 @@ jobs:
           path: |
             coverage.xml
             phpunit.xml
+            sonar-project.properties
 
   test-codacy:
     needs: build
