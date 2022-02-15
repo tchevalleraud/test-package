@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1644930699">
+  <project timestamp="1644930699">
+    <file name="F:\Projets\github\tchevalleraud\test-package\src\Package1.php">
+      <class name="Tchevalleraud\TestPackage\Package1" namespace="global">
+        <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="8" coveredelements="8"/>
+      </class>
+      <line num="8" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="9" type="stmt" count="3"/>
+      <line num="10" type="stmt" count="3"/>
+      <line num="12" type="method" name="getData" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="16" type="method" name="setData" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="17" type="stmt" count="1"/>
+      <line num="18" type="stmt" count="1"/>
+      <line num="21" type="stmt" count="1"/>
+      <metrics loc="20" ncloc="20" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="8" coveredelements="8"/>
+    </file>
+    <metrics files="1" loc="20" ncloc="20" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="8" coveredelements="8"/>
+  </project>
+</coverage>

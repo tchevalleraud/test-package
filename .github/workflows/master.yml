@@ -11,7 +11,7 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
       - name: Execute tests
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --log-junit=junit.xml
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --log-junit=phpunit.xml
       - name: Upload coverage results to Coveralls
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
