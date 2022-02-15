@@ -16,6 +16,9 @@ jobs:
       - name: Execute tests
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --log-junit=execution.xml
 
+      - name: Test
+        run: pwd
+
       - name: Upload coverage results to Coveralls
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
