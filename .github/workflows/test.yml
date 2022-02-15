@@ -27,3 +27,6 @@ jobs:
           path: README.md
           key: ${{ runner.os }}-readme
           restore-keys: ${{ runner.os }}-readme
+
+      - name: Dump
+        run: ls -Al
