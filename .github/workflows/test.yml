@@ -24,7 +24,7 @@ jobs:
             coverage.xml
             phpunit.xml
 
-  test1:
+  test-codacy:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -33,5 +33,56 @@ jobs:
         with:
           name: phpunit
 
-      - name: Dump
-        run: ls -Al
+      - name: Upload coverage results to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_TOKEN }}
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+
+  test-coveralls:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: phpunit
+
+      - name: Upload coverage results to Coveralls
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: bash <(curl -s https://codecov.io/bash)
+
+  test-snyk:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: phpunit
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/php@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+  test-sonarcloud:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: phpunit
+
+      - name: Fix coverage for SonarCloud
+        run: |
+          sed -i 's/\/home\/runner\/work\/test-package\/test-package\//\/github\/workspace\//g' coverage.xml
+          sed -i 's/\/home\/runner\/work\/test-package\/test-package\//\/github\/workspace\//g' phpunit.xml
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
