@@ -17,7 +17,7 @@ jobs:
         run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml --log-junit=execution.xml
 
       - name: Test
-        run: pwd
+        run: cat coverage.xml
 
       - name: Upload coverage results to Coveralls
         env:
