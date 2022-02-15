@@ -25,6 +25,7 @@ jobs:
             phpunit.xml
 
   test1:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Download tests results
