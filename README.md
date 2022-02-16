@@ -2,7 +2,7 @@
 
 [![Master](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml)
 [![Develop](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/tchevalleraud/test-package?label=Version)](https://github.com/tchevalleraud/test-package/tags)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
