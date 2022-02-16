@@ -2,6 +2,7 @@
 
 [![Master](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/master.yml)
 [![Develop](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml/badge.svg)](https://github.com/tchevalleraud/test-package/actions/workflows/develop.yml)
+[![GitHub](https://img.shields.io/github/license/tchevalleraud/test-package?label=Licence)](https://github.com/tchevalleraud/test-package/blob/master/LICENSE.md)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/tchevalleraud/test-package?label=Version)](https://github.com/tchevalleraud/test-package/tags)
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tchevalleraud_test-package&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=tchevalleraud_test-package)
